@@ -1,0 +1,873 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+body{
+    
+}
+
+/* Navbar Styling */
+header {
+    background-color: #00000000;
+    color: #fff;
+    z-index: 33;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+   
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    z-index: 33;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Navbar links and Tele Button */
+.nav-items {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    position: relative;
+    margin: 0 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #cba557;
+}
+
+.nav-links li::after{
+    width: 0;
+}
+
+.nav-links li::after {
+    content: '';
+    position: absolute;
+    top: 35px;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: #cba557;
+    transition:ease-in-out 0.3s;
+    transform: translateX(0);
+
+}
+
+.nav-links li:hover::after {
+    width: 100%;
+}
+
+/* Dropdown Styling */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    list-style: none;
+    z-index: 2;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-menu li {
+    padding: 10px;
+}
+
+.dropdown-menu a {
+    color: black;
+}
+
+.dropdown-icon {
+    margin-left: 5px;
+}
+
+/* Tele Button */
+.tele-btn {
+    background-color: #cba557;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+/* Hamburger Styling */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 4px;
+    transition: all 0.3s;
+}
+
+/* Responsive Design */
+
+/* Animation for sliding menu */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Hamburger icon transformation */
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(7.5px, 7.5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(7.5px, -7.5px);
+}
+
+/* WhatsApp Button Container */
+.whatsapp-btn {
+    position: fixed; /* Ensures the button stays in place */
+    bottom: 20px; /* Initial vertical position */
+    right: 20px; /* Initial horizontal position */
+    z-index: 9999; /* Makes it appear on top of everything */
+    cursor: grab; /* Indicates the button is draggable */
+  }
+  
+  /* WhatsApp Link Styling */
+  .whatsapp-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #25d366; /* WhatsApp green */
+    color: white;
+    font-size: 20px;
+    border-radius: 50px;
+    padding: 10px 15px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  /* Icon Styling */
+  .whatsapp-link i {
+    font-size: 24px;
+  }
+  
+  /* WhatsApp Text (Initially Hidden) */
+  .whatsapp-text {
+    margin-left: 10px;
+    opacity: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 0;
+    transition: all 0.3s ease;
+  }
+  
+  /* On Hover: Show Text */
+  .whatsapp-link:hover .whatsapp-text {
+    opacity: 1;
+    max-width: 100px;
+  }
+  
+  /* WhatsApp Button Hover Effect */
+  .whatsapp-link:hover {
+    padding-right: 40px; /* Adjust padding to fit the text smoothly */
+  }
+  
+
+.video-section {
+    margin: 0rem;
+  
+    position: relative;
+    height: 70vh; /* Full viewport height */
+    width: auto;
+    overflow: hidden;
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100vh;
+    width: auto;
+    height: 100%;
+    z-index: 1;
+    background-position: center;
+    object-fit:cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 2;
+}
+
+.content {
+    position: relative;
+    z-index: 30;
+    color: white;
+    margin-top: 20rem;
+    top: 50%;
+    
+    
+    padding: 0 20px;
+}
+
+.line {
+    width: 80px;
+    height: 8px;
+    background-color: #cba557; /* Change to your preferred color */
+    margin: 20px; /* Optional: Adds space above and below the line */
+  }
+
+  .known{
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin:  -25rem 3rem 3rem 3rem;
+    text-align: left;
+  }
+
+.Emerge{
+    font-family: Nunito;
+    color: whitesmoke;
+    font-size: 70px;
+    
+    font-weight: bolder;
+   
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.At-adr{
+margin: 2rem 3rem;
+font-family: Nunito;
+}
+
+
+.Request-acall{
+    border: 2px solid #cba557;
+    background-color: #cba557;
+    display: inline-block;
+    padding: 18px 55px;
+    border-radius: 55px;
+    margin:  1.5rem 1rem 8rem 3rem;
+    color: whitesmoke;
+   transition: ease-in-out 0.3s;
+    
+}
+
+.Request-acall:hover{
+    background-color: #182434;
+    border: 2px solid #182434;
+    transition: ease-in-out 0.3s;
+}
+
+.about-us {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 8rem;
+  }
+  
+  .about-content {
+    flex: 1;
+  }
+  
+  .about-content h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .about-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .about-content .learn-more {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .about-content .learn-more:hover {
+    background-color: #0056b3;
+  }
+  
+  .about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .three-box-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: whitesmoke;
+    border-radius:  30px 30px 0 0;
+    margin-bottom: 8rem;
+  }
+  
+  .box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+   
+    text-align: center;
+    flex: 1;
+  }
+  
+  .box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #222;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+  }
+
+
+.testimonials {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 1200px;
+    height: 100vh;
+    margin: 0 auto;
+    background-color:whitesmoke ;
+    border-radius: 30px 30px 0 0;
+    margin-bottom: 8rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 10rem;
+  }
+  
+  .testimonial-cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .testimonial-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+   
+    text-align: center;
+    flex: 1;
+  }
+  
+  .client-image {
+    margin-bottom: 15px;
+  }
+  
+  .client-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .testimonial-card h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #222;
+  }
+  
+  .testimonial-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .location {
+    color: #f39c12;
+    font-size: 0.9rem;
+  }
+
+  .adr-section {
+    background-color: #fff;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 8rem;
+  }
+  
+  .adr-container {
+    margin: 0 auto;
+  }
+  
+  .adr-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .adr-divider {
+    width: 60px;
+    height: 3px;
+    background-color: #222;
+    margin: 0 auto 20px;
+    border: none;
+  }
+  
+  .adr-description {
+    font-size: 1rem;
+    color: #555;
+    text-align: justify;
+    margin: 0 auto;
+    line-height: 1.6;
+    max-width: 1000px;
+  }
+  
+  .hero {
+    position: relative;
+    height: 70vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url('../../Images/appointment-bg.jpeg'); /* Add your image URL here */
+    background-size: cover; /* Ensure the image covers the section */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Keep the background fixed */
+    background-repeat: no-repeat;
+    border-radius: 30px 30px 0 0;
+  }
+  
+  /* Overlay to cover the whole section */
+  .overlay {
+    border-radius: 30px 30px 0 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.705); /* Dark overlay */
+    z-index: 1; /* Place it below the content */
+  }
+  .line1 {
+    width: 100px;
+    height: 3px;
+    background-color: #f9f9f9; /* Change to your preferred color */
+    margin: 20px auto; /* Optional: Adds space above and below the line */
+  }
+  /* Hero content styles */
+  .hero-content {
+    
+    width: 600px;
+    z-index: 2; /* Ensure content is above the overlay */
+    color: white; /* Text color */
+    padding: 20px;
+    text-align: center;
+    margin: 1rem auto;
+ 
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-content button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hero-content button:hover {
+    background-color: #0056b3;
+  }
+   
+  footer {
+    background-color: #182434;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .footer-description {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .footer-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .footer-column h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    margin: 10px 0;
+  }
+  
+  .footer-column ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-column ul li a:hover {
+    color: #e5c100;
+  }
+  
+  .footer-column p {
+    margin: 10px 0;
+  }
+  
+  .footer-copyright {
+    text-align: center;
+    font-size: 14px;
+    color: #bbb;
+    margin-top: 20px;
+  }
+
+  @media (min-width: 769px) and (max-width: 1025px) {
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: .75rem;
+        transition: color 0.3s;
+    }
+
+    .tele-btn {
+        background-color: #cba557;
+        color: #333;
+        border: none;
+        padding: 7px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 0.5rem;
+    }
+  }
+
+  
+@media (max-width: 768px) {
+    .services-section {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+    header {
+        background-color: #f8090900;
+        color: #182434;
+        z-index: 33;
+        position: absolute;
+        top: 1%;
+        width: 100%;
+    }
+    .nav-items {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 90%;
+        background-color: #f9f9f9;
+        color: #182434;
+        flex-direction: column;
+        padding: 20px;
+        animation: slideIn 0.5s forwards;
+        align-items: start;
+        text-align: left;
+    }
+
+  
+
+    .nav-items.show {
+        display: flex; /* Display nav items in a column */
+        transform: translateX(0);
+    }
+
+  
+
+    .dropdown-menu:hover {
+        display: block;
+        z-index: 2;
+        transition: ease-in-out 0.5s;
+    }
+
+
+    .nav-links {
+        flex-direction: column; /* Stack items vertically */
+        text-align: center;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        text-align: left;
+        color: #182434;
+    }
+
+    .nav-links li a{
+      color: #182434;
+    }
+
+    /* Hide Tele Button on small screens */
+    .tele-btn {
+        display: none;
+    }
+
+    /* Show only logo and hamburger on small screens */
+    .hamburger {
+        display: flex;
+    }
+
+    .video-section {
+        position:relative ;
+        height: 50vh; /* Full viewport height */
+        width: auto;
+        overflow: hidden;
+        margin: 0;
+       
+    }
+
+    .video-overlay {
+        position: absolute;
+        top: 10;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+        z-index: 2;
+    }
+    
+    .background-video {
+        position:absolute ;
+        top: 25%;
+        transform: translate(-50%, -50%);
+        width: 200%;
+        height: 50vh;
+        z-index: 1;
+        object-fit: cover;
+    }
+    .known{
+        max-width: 700px;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        margin:  12rem 1rem .2rem 1rem;
+        text-align: left;
+      }
+    
+    .content {
+        position: relative;
+        z-index: 30;
+        color: white;
+        margin-top: 0rem;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0 10px;
+        z-index: 5;
+    }
+    .Emerge{
+       
+        color: whitesmoke;
+        font-size: 40px;
+        font-weight: 400;
+        
+        
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+       
+    }
+
+    
+ 
+    
+    .Request-acall{
+        border: 2px solid #fa5633;
+        background-color: #fa5633;
+        display: inline-block;
+        padding: 3px 20px;
+        border-radius: 25px;
+        margin:  0rem 1rem 0 1rem;
+        color: whitesmoke;
+  
+        
+    }
+
+    .At-adr{
+        margin:  3rem 1rem 3rem 1rem;
+    }
+
+    .about-us {
+        flex-direction: column;
+        text-align: left;
+        font-size: 12px;
+      }
+    
+      .about-content {
+        margin-bottom: 20px;
+      }
+
+      .three-box-section {
+        flex-direction: column;
+      }
+    
+      .box {
+        margin-bottom: 20px;
+      }
+    
+      .box:last-child {
+        margin-bottom: 0;
+      }
+
+      .testimonials{
+        height: auto;
+      }
+
+      .testimonial-cards {
+        flex-direction: column;
+      }
+    
+      .testimonial-card {
+        margin-bottom: 20px;
+      }
+    
+      .testimonial-card:last-child {
+        margin-bottom: 0;
+      }
+      .adr-description {
+        text-align: left;
+        font-size: 0.9rem;
+      }
+    
+      .adr-title {
+        font-size: 1rem;
+      }
+
+      .hero {
+        background-attachment: scroll; /* Disable fixed background on mobile */
+      }
+      .hero-content {
+        width: fit-content;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+    
+      .hero {
+        background-attachment: scroll; /* Disable fixed background on mobile */
+      }
+
+      .footer-sections {
+        grid-template-columns: 1fr;
+      }
+}
