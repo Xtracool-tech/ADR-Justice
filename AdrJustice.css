@@ -1003,7 +1003,7 @@ background-color: #cba557;
         top: 25%;
         transform: translate(-50%, -50%);
         width: 200%;
-        height: 190vh;
+        height: 170vh;
         z-index: 1;
         object-fit: cover;
     }
