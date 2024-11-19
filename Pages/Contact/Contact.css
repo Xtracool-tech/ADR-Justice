@@ -733,7 +733,7 @@ form button:hover {
 
     .video-section {
         position:relative ;
-        height: 50vh; /* Full viewport height */
+        height: 60vh; /* Full viewport height */
         width: auto;
         overflow: hidden;
         margin: 0;
